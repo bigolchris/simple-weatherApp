@@ -28,9 +28,14 @@ let weather = {
       "Humidity: " + humidity + "%";
 
     document.querySelector(".wind").innerText = "Wind speed: " + speed + " Mph";
+    document.querySelector(".weather").classList.remove("loading");
+
+    document.body.style.backgroundImage =
+      "url('https://source.unsplash.com/2560x1440/? " + name + "')";
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
+    this.fetchWeather((document.querySelector(".search-bar").value = ""));
   },
 };
 
@@ -45,3 +50,5 @@ document
       weather.search();
     }
   });
+
+weather.fetchWeather("Petaluma");

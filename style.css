@@ -69,3 +69,17 @@ button:hover {
   text-transform: capitalize;
   margin-left: 0.2em;
 }
+
+.weather.loading {
+  visibility: hidden;
+  max-height: 20px;
+  position: relative;
+}
+
+.weather.loading:after {
+  visibility: visible;
+  content: "Loading...";
+  color: #fff;
+  position: absolute;
+  top: 0;
+}
