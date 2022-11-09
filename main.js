@@ -51,4 +51,4 @@ document
     }
   });
 
-weather.fetchWeather("Petaluma");
+weather.fetchWeather("Maine");
