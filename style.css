@@ -70,16 +70,22 @@ button:hover {
   margin-left: 0.2em;
 }
 
-.weather.loading {
-  visibility: hidden;
+.current-weather-container {
+  /* visibility: hidden; */
   max-height: 20px;
   position: relative;
 }
 
-.weather.loading:after {
+.current-weather-container.loading {
   visibility: visible;
   content: "Loading...";
   color: #fff;
   position: absolute;
   top: 0;
 }
+
+/* .newTitle-styles {
+  width: 1em;
+  height: 1em;
+  color: white;
+} */
