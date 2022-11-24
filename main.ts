@@ -69,8 +69,8 @@ const addNewWeatherToFavorites = () => {};
 const renderNewWeather = (weather: Weather) => {
   clearContainer(weatherContainer);
 
-  let weatherTitle = document.createElement("h2");
-  let weatherTemp = document.createElement("h1");
+  let weatherTitle = document.createElement("h1");
+  let weatherTemp = document.createElement("h2");
   let weatherIcon = document.createElement("img");
   let weatherDesc = document.createElement("div");
   let weatherSpeed = document.createElement("div");
@@ -87,8 +87,8 @@ const renderNewWeather = (weather: Weather) => {
   weatherTemp.innerText = `${weather.temp}`;
   weatherIcon.src = `https://openweathermap.org/img/wn/${weather.icon}.png`;
   weatherDesc.innerText = weather.description;
-  weatherSpeed.innerText = `${weather.windSpeed}`;
-  weatherHumidity.innerText = `${weather.humidity}`;
+  weatherSpeed.innerText = `Wind Speed: ${weather.windSpeed}Mph`;
+  weatherHumidity.innerText = `Humidity: ${weather.humidity}%`;
 
   weatherContainer.appendChild(weatherTitle);
   weatherContainer.appendChild(weatherTemp);
