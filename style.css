@@ -28,6 +28,11 @@ body {
   justify-content: center;
 }
 
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
 button {
   margin: 0.5em;
   border-radius: 50%;
@@ -37,6 +42,8 @@ button {
   outline: none;
   background: #7c7c7c2b;
   color: white;
+
+  /* display: inline; */
 }
 
 button:hover {
@@ -55,6 +62,7 @@ button:hover {
   font-family: inherit;
   font-size: 105%;
   width: calc(100% - 100px);
+  /* display: inline-block; */
 }
 
 .city {

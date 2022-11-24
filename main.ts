@@ -22,7 +22,13 @@ const weatherContainer = document.querySelector(
 
 // Data
 const savedWeathers = [];
-let currentWeather: Weather | undefined;
+
+const Init = () => {
+  let storageRes: string | null = localStorage.getItem("currentWeather");
+  if (!storageRes) return;
+  let weather = JSON.parse(storageRes) as Weather;
+  renderNewWeather(weather);
+};
 
 //Event Handlers
 const weatherSubmitHandler = async (e: SubmitEvent) => {
@@ -31,8 +37,7 @@ const weatherSubmitHandler = async (e: SubmitEvent) => {
   const value = searchInput.value;
   const weather = await getWeatherData(value);
   if (!weather) return;
-  console.log(weather);
-  currentWeather = weather;
+  localStorage.setItem("currentWeather", JSON.stringify(weather));
   searchInput.value = "";
   renderNewWeather(weather);
 };
@@ -84,7 +89,7 @@ const renderNewWeather = (weather: Weather) => {
 
   weatherTitle.innerText =
     weather.cityName.charAt(0).toUpperCase() + weather.cityName.slice(1);
-  weatherTemp.innerText = `${weather.temp}`;
+  weatherTemp.innerText = `${weather.temp} °F`;
   weatherIcon.src = `https://openweathermap.org/img/wn/${weather.icon}.png`;
   weatherDesc.innerText = weather.description;
   weatherSpeed.innerText = `Wind Speed: ${weather.windSpeed}Mph`;
@@ -162,3 +167,5 @@ searchForm.addEventListener("submit", weatherSubmitHandler);
 //   });
 
 // weather.fetchWeather("Maine");
+
+Init();
