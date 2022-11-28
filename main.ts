@@ -4,6 +4,10 @@ const openWeather = new OpenWeatherMap({
   apiKey: "48c35fc9bf8a18960ac191e236105942",
 });
 
+const unsplash = new createApi({
+  apiKey: "tg10Lza0tJU-atjYY5XUSQxGACuLEBkPcgEiEBR2wRk",
+});
+
 type Weather = {
   cityName: string;
   description: string;
@@ -71,6 +75,13 @@ const getWeatherData = async (cityName: string) => {
 const addNewWeatherToFavorites = () => {};
 
 //Render Functions
+
+const newImage = async () => {
+  try {
+    const unsplashRes = await
+  }
+}
+
 const renderNewWeather = (weather: Weather) => {
   clearContainer(weatherContainer);
 
@@ -94,6 +105,8 @@ const renderNewWeather = (weather: Weather) => {
   weatherDesc.innerText = weather.description;
   weatherSpeed.innerText = `Wind Speed: ${weather.windSpeed}Mph`;
   weatherHumidity.innerText = `Humidity: ${weather.humidity}%`;
+  // document.body.style.backgroundImage =
+  // "url('https://source.unsplash.com/2560x1440/? " + weatherTitle + "')";
 
   weatherContainer.appendChild(weatherTitle);
   weatherContainer.appendChild(weatherTemp);
@@ -145,8 +158,8 @@ searchForm.addEventListener("submit", weatherSubmitHandler);
 //     document.querySelector(".wind").innerText = "Wind speed: " + speed + " Mph";
 //     document.querySelector(".weather").classList.remove("loading");
 
-//     document.body.style.backgroundImage =
-//       "url('https://source.unsplash.com/2560x1440/? " + name + "')";
+// document.body.style.backgroundImage =
+//   "url('https://source.unsplash.com/2560x1440/? " + name + "')";
 //   },
 //   search: function () {
 //     this.fetchWeather(document.querySelector(".search-bar").value);
