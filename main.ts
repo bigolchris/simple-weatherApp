@@ -60,16 +60,16 @@ const getWeatherData = async (cityName: string) => {
     const weatherRes = await openWeather.getCurrentWeatherByCityName({
       cityName: cityName,
     });
-    // const imgRes = await unsplash.photos.getRandom({
-    //   query: cityName,
-    // });
+    const imgRes = await unsplash.photos.getRandom({
+      query: cityName,
+    });
 
     let imgURL = "";
 
-    // if (imgRes.response && !Array.isArray(imgRes.response)) {
-    //   imgURL = imgRes.response.urls.full;
-    // }
-    // console.log(imgRes);
+    if (imgRes.response && !Array.isArray(imgRes.response)) {
+      imgURL = imgRes.response.urls.full;
+    }
+    console.log(imgRes);
     let weather: Weather = {
       cityName: cityName,
       description: weatherRes.weather[0].description,
@@ -125,7 +125,7 @@ const renderNewWeather = (weather: Weather) => {
   weatherDesc.innerText = weather.description;
   weatherSpeed.innerText = `Wind Speed: ${weather.windSpeed}Mph`;
   weatherHumidity.innerText = `Humidity: ${weather.humidity}%`;
-  // document.body.style.backgroundImage = "url(weather.img)";
+  document.body.style.backgroundImage = `url(${weather.img})`;
 
   weatherContainer.appendChild(weatherTitle);
   weatherContainer.appendChild(weatherTemp);
