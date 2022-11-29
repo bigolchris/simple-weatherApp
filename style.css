@@ -6,7 +6,7 @@ body {
   margin: 0;
   background: #222;
   font-family: "Open Sans", sans-serif;
-  background-image: url("https://source.unsplash.com/2560x1440/?landscape");
+  background-image: url("https://images.hdqwalls.com/download/pixel-landscape-dt-2560x1440.jpg");
   font-size: 120%;
 }
 
@@ -44,6 +44,22 @@ button {
   color: white;
 
   /* display: inline; */
+}
+
+.fav-btn {
+  margin-top: 1em;
+  border-radius: 50%;
+  border: none;
+  height: 2.8em;
+  width: 2.8em;
+  outline: none;
+  background: #7c7c7c2b;
+  color: white;
+}
+
+.fav-btn:hover {
+  color: red;
+  background-color: #fffaf1;
 }
 
 button:hover {

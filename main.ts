@@ -1,11 +1,14 @@
 import OpenWeatherMap from "openweathermap-ts";
+import { createApi } from "unsplash-js";
+import { Random } from "unsplash-js/dist/methods/photos/types";
+// import "whatwg-fetch"
 
 const openWeather = new OpenWeatherMap({
   apiKey: "48c35fc9bf8a18960ac191e236105942",
 });
 
-const unsplash = new createApi({
-  apiKey: "tg10Lza0tJU-atjYY5XUSQxGACuLEBkPcgEiEBR2wRk",
+const unsplash = createApi({
+  accessKey: "tg10Lza0tJU-atjYY5XUSQxGACuLEBkPcgEiEBR2wRk",
 });
 
 type Weather = {
@@ -16,6 +19,7 @@ type Weather = {
   icon: string;
   windSpeed: number;
   humidity: number;
+  img?: string;
 };
 
 //Elements
@@ -25,7 +29,7 @@ const weatherContainer = document.querySelector(
 ) as HTMLDivElement;
 
 // Data
-const savedWeathers = [];
+const savedWeathers: Array<Weather> = [];
 
 const Init = () => {
   let storageRes: string | null = localStorage.getItem("currentWeather");
@@ -56,6 +60,16 @@ const getWeatherData = async (cityName: string) => {
     const weatherRes = await openWeather.getCurrentWeatherByCityName({
       cityName: cityName,
     });
+    // const imgRes = await unsplash.photos.getRandom({
+    //   query: cityName,
+    // });
+
+    let imgURL = "";
+
+    // if (imgRes.response && !Array.isArray(imgRes.response)) {
+    //   imgURL = imgRes.response.urls.full;
+    // }
+    // console.log(imgRes);
     let weather: Weather = {
       cityName: cityName,
       description: weatherRes.weather[0].description,
@@ -64,6 +78,7 @@ const getWeatherData = async (cityName: string) => {
       feelsLike: weatherRes.main.feels_like,
       icon: weatherRes.weather[0].icon,
       humidity: weatherRes.main.humidity,
+      img: imgURL,
     };
     return weather;
   } catch (err) {
@@ -72,15 +87,17 @@ const getWeatherData = async (cityName: string) => {
 };
 
 // Data Handlers
-const addNewWeatherToFavorites = () => {};
+const addNewWeatherToFavorites = () => {
+  const localStorageRes = localStorage.getItem("currentWeather");
+  const currentWeather = localStorageRes
+    ? (JSON.parse(localStorageRes) as Weather)
+    : null;
+  if (!currentWeather) return;
+  savedWeathers.push(currentWeather);
+  console.log(savedWeathers);
+};
 
 //Render Functions
-
-const newImage = async () => {
-  try {
-    const unsplashRes = await
-  }
-}
 
 const renderNewWeather = (weather: Weather) => {
   clearContainer(weatherContainer);
@@ -91,6 +108,9 @@ const renderNewWeather = (weather: Weather) => {
   let weatherDesc = document.createElement("div");
   let weatherSpeed = document.createElement("div");
   let weatherHumidity = document.createElement("div");
+  let favBtn = document.querySelector(".fav-btn") as HTMLButtonElement;
+
+  favBtn.addEventListener("click", addNewWeatherToFavorites);
 
   weatherTitle.classList.add("city");
   weatherTemp.classList.add("temp");
@@ -105,8 +125,7 @@ const renderNewWeather = (weather: Weather) => {
   weatherDesc.innerText = weather.description;
   weatherSpeed.innerText = `Wind Speed: ${weather.windSpeed}Mph`;
   weatherHumidity.innerText = `Humidity: ${weather.humidity}%`;
-  // document.body.style.backgroundImage =
-  // "url('https://source.unsplash.com/2560x1440/? " + weatherTitle + "')";
+  // document.body.style.backgroundImage = "url(weather.img)";
 
   weatherContainer.appendChild(weatherTitle);
   weatherContainer.appendChild(weatherTemp);
