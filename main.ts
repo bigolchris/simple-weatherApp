@@ -36,6 +36,7 @@ const Init = () => {
   if (!storageRes) return;
   let weather = JSON.parse(storageRes) as Weather;
   renderNewWeather(weather);
+  renderFavoriteWeathers();
 };
 
 //Event Handlers
@@ -95,6 +96,7 @@ const addNewWeatherToFavorites = () => {
   if (!currentWeather) return;
   savedWeathers.push(currentWeather);
   console.log(savedWeathers);
+  renderFavoriteWeathers();
 };
 
 //Render Functions
@@ -141,8 +143,51 @@ const clearContainer = (container: HTMLElement) => {
   }
 };
 
-const renderFavoriteWeathers = () => {};
+const renderFavoriteWeathers = () => {
+  // Select container that's already in html
+  let favContainer = document.querySelector(".fav-container") as HTMLDivElement;
+  clearContainer(favContainer);
 
+  // loop through saved weathers, parse data, and create elements
+
+  for (let i = 0; i < savedWeathers.length; i++) {}
+
+  const favWeatherElements = savedWeathers.map((fav) => {
+    let newWeatherContainer = document.createElement("div");
+    const title = document.createElement("h2");
+    const favTemp = document.createElement("h3");
+    const favIcon = document.createElement("img");
+    const favHumidity = document.createElement("h4");
+    const favDescription = document.createElement("h5");
+
+    newWeatherContainer.classList.add("new-fav-container");
+    title.classList.add("favTitle");
+    favTemp.classList.add("favTemp");
+    favIcon.classList.add("favIcon");
+    favHumidity.classList.add("favHumidity");
+    favDescription.classList.add("favDesc");
+    // const favTemp = document.createElement("h3");
+
+    title.innerText = fav.cityName;
+    favTemp.innerText = `${fav.temp} °F`;
+    favIcon.src = `https://openweathermap.org/img/wn/${fav.icon}.png`;
+    favHumidity.innerText = `Humidity: ${fav.humidity}%`;
+    favDescription.innerText = fav.description;
+
+    newWeatherContainer.appendChild(title);
+    newWeatherContainer.appendChild(favTemp);
+    newWeatherContainer.appendChild(favIcon);
+    newWeatherContainer.appendChild(favHumidity);
+    newWeatherContainer.appendChild(favDescription);
+
+    return newWeatherContainer;
+  });
+
+  // render elements to selected container
+  for (let element of favWeatherElements) {
+    favContainer.appendChild(element);
+  }
+};
 searchForm.addEventListener("submit", weatherSubmitHandler);
 
 // let weather = {

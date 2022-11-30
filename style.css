@@ -118,6 +118,40 @@ button:hover {
   top: 0;
 }
 
+/* favorites tab styles */
+
+.new-fav-container {
+  background: #000000d0;
+  color: white;
+  border-radius: 1.5em;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  margin-bottom: 1em;
+}
+
+.fav-container {
+  /* display: flex; */
+  /* border: 1px solid black; */
+}
+
+.favTitle {
+}
+
+.favTemp {
+}
+
+.favIcon {
+}
+
+.favDesc {
+}
+
+.favHumidity {
+}
+
 /* .newTitle-styles {
   width: 1em;
   height: 1em;
