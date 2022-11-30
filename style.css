@@ -122,9 +122,11 @@ button:hover {
 
 .new-fav-container {
   background: #000000d0;
+  position: relative;
   color: white;
   border-radius: 1.5em;
-  width: 250px;
+  width: 450px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,23 +135,35 @@ button:hover {
 }
 
 .fav-container {
+  position: absolute;
+  right: 1em;
   /* display: flex; */
   /* border: 1px solid black; */
 }
 
-.favTitle {
-}
+/* .favTitle {
+} */
 
 .favTemp {
+  position: absolute;
+  left: 3em;
+  top: 3em;
 }
 
 .favIcon {
+  position: absolute;
+  bottom: 1em;
 }
 
 .favDesc {
+  position: absolute;
+  bottom: -1em;
 }
 
 .favHumidity {
+  position: absolute;
+  top: 3.6em;
+  right: 3em;
 }
 
 /* .newTitle-styles {

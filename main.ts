@@ -154,7 +154,7 @@ const renderFavoriteWeathers = () => {
 
   const favWeatherElements = savedWeathers.map((fav) => {
     let newWeatherContainer = document.createElement("div");
-    const title = document.createElement("h2");
+    const title = document.createElement("h1");
     const favTemp = document.createElement("h3");
     const favIcon = document.createElement("img");
     const favHumidity = document.createElement("h4");
