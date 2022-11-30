@@ -137,8 +137,24 @@ button:hover {
 .fav-container {
   position: absolute;
   right: 1em;
+  max-height: 70vh;
+  overflow-y: scroll;
+  padding-inline: 0.7em;
   /* display: flex; */
   /* border: 1px solid black; */
+}
+
+.fav-container::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.fav-container::-webkit-scrollbar-track {
+  background: rgba(75, 72, 83, 0.5);
+  border-radius: 1em;
+}
+.fav-container::-webkit-scrollbar-thumb {
+  background: rgba(15, 15, 15, 0.439);
+  border-radius: 1em;
 }
 
 /* .favTitle {
