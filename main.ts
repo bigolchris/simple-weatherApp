@@ -179,6 +179,27 @@ const renderFavoriteWeathers = () => {
     newWeatherContainer.appendChild(favIcon);
     newWeatherContainer.appendChild(favHumidity);
     newWeatherContainer.appendChild(favDescription);
+    newWeatherContainer.classList.contains("");
+    newWeatherContainer.addEventListener("dblclick", (e) => {
+      if (e.target && e.target instanceof HTMLDivElement) {
+        let title = "";
+
+        for (let i = 0; i < e.target.children.length; i++) {
+          if (e.target.children[i].classList.contains("favTitle")) {
+            title = (e.target.children[i] as HTMLHeadingElement).innerText;
+          }
+        }
+
+        for (let i = 0; i < savedWeathers.length; i++) {
+          if (savedWeathers[i].cityName === title) {
+            savedWeathers.splice(i, 1);
+          }
+        }
+        renderFavoriteWeathers();
+      }
+    });
+
+    console.log(fav.cityName);
 
     return newWeatherContainer;
   });
