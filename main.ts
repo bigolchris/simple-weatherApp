@@ -145,6 +145,7 @@ const clearContainer = (container: HTMLElement) => {
 
 const renderFavoriteWeathers = () => {
   // Select container that's already in html
+  let favToggle = document.querySelector(".fav-toggle") as HTMLInputElement;
   let favContainer = document.querySelector(".fav-container") as HTMLDivElement;
   clearContainer(favContainer);
 
@@ -208,6 +209,16 @@ const renderFavoriteWeathers = () => {
   for (let element of favWeatherElements) {
     favContainer.appendChild(element);
   }
+
+  favToggle.addEventListener("click", () => {
+    if (favContainer.classList.contains("hide")) {
+      favContainer.classList.add("show");
+      favContainer.classList.remove("hide");
+    } else {
+      favContainer.classList.remove("show");
+      favContainer.classList.add("hide");
+    }
+  });
 };
 searchForm.addEventListener("submit", weatherSubmitHandler);
 

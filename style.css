@@ -33,7 +33,7 @@ body {
   align-items: center;
 }
 
-button {
+.search-submit-button {
   margin: 0.5em;
   border-radius: 50%;
   border: none;
@@ -62,7 +62,7 @@ button {
   background-color: #fffaf1;
 }
 
-button:hover {
+.search-submit-button:hover {
   background: #7c7c7c6b;
   cursor: pointer;
   transition: 0.5s ease-in-out;
@@ -134,12 +134,15 @@ button:hover {
   margin-bottom: 1em;
 }
 
-.fav-container {
+.fav-container,
+.show {
   position: absolute;
   right: 1em;
+  height: 10em;
   max-height: 70vh;
   overflow-y: scroll;
   padding-inline: 0.7em;
+  background-color: #fff;
   /* display: flex; */
   /* border: 1px solid black; */
 }
@@ -181,6 +184,55 @@ button:hover {
   position: absolute;
   top: 3.6em;
   right: 3em;
+}
+
+/* hamburger */
+
+.hide {
+  display: none;
+}
+
+.fav-toggle {
+  position: absolute;
+  top: 2em;
+  right: 0;
+  background: #fff;
+  padding: 1em 0.5em;
+  border: 0;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 2em;
+  height: 3px;
+  background: black;
+
+  transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  bottom: 6px;
+}
+
+.hamburger::after {
+  top: 6px;
+}
+
+.hamburger {
+  transform: rotate(45deg);
 }
 
 /* .newTitle-styles {
