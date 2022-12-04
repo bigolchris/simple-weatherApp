@@ -143,10 +143,10 @@ const clearContainer = (container: HTMLElement) => {
   }
 };
 
+let favToggle = document.querySelector(".fav-toggle") as HTMLInputElement;
+let favContainer = document.querySelector(".fav-container") as HTMLDivElement;
 const renderFavoriteWeathers = () => {
   // Select container that's already in html
-  let favToggle = document.querySelector(".fav-toggle") as HTMLInputElement;
-  let favContainer = document.querySelector(".fav-container") as HTMLDivElement;
   clearContainer(favContainer);
 
   // loop through saved weathers, parse data, and create elements
@@ -209,17 +209,20 @@ const renderFavoriteWeathers = () => {
   for (let element of favWeatherElements) {
     favContainer.appendChild(element);
   }
-
-  favToggle.addEventListener("click", () => {
-    if (favContainer.classList.contains("hide")) {
-      favContainer.classList.add("show");
-      favContainer.classList.remove("hide");
-    } else {
-      favContainer.classList.remove("show");
-      favContainer.classList.add("hide");
-    }
-  });
 };
+favToggle.addEventListener("click", () => {
+  // debugger;
+  console.log("fired");
+  document.body.classList.toggle("nav-open");
+
+  if (favContainer.classList.contains("hide")) {
+    favContainer.classList.add("show");
+    favContainer.classList.remove("hide");
+  } else {
+    favContainer.classList.remove("show");
+    favContainer.classList.add("hide");
+  }
+});
 searchForm.addEventListener("submit", weatherSubmitHandler);
 
 // let weather = {

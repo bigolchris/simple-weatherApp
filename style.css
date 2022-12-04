@@ -136,13 +136,14 @@ body {
 
 .fav-container,
 .show {
+  top: 3em;
   position: absolute;
-  right: 1em;
-  height: 10em;
+  right: 0.5em;
+  height: 30em;
   max-height: 70vh;
   overflow-y: scroll;
   padding-inline: 0.7em;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.071);
   /* display: flex; */
   /* border: 1px solid black; */
 }
@@ -196,7 +197,7 @@ body {
   position: absolute;
   top: 2em;
   right: 0;
-  background: #fff;
+  background: #00000074;
   padding: 1em 0.5em;
   border: 0;
 }
@@ -204,6 +205,7 @@ body {
 .hamburger {
   display: block;
   position: relative;
+  margin-right: 1.5em;
 }
 
 .hamburger,
@@ -211,9 +213,9 @@ body {
 .hamburger::after {
   width: 2em;
   height: 3px;
-  background: black;
+  background: #fff;
 
-  transition: transform 250ms ease-in-out;
+  transition: transform 300ms ease-in-out, opacity 250ms linear;
 }
 
 .hamburger::before,
@@ -231,9 +233,27 @@ body {
   top: 6px;
 }
 
-.hamburger {
+.nav-open .fav-toggle {
+  transform: translateX(0);
+}
+
+.nav-open .hamburger {
   transform: rotate(45deg);
 }
+
+.nav-open .hamburger::before {
+  opacity: 0;
+}
+
+.nav-open .hamburger::after {
+  transform: rotate(90deg) translate(-6px);
+}
+
+/* .fav-header {
+  color: #fff;
+  height: 10vh;
+  width: 10vw;
+} */
 
 /* .newTitle-styles {
   width: 1em;
