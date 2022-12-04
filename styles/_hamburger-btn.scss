@@ -1,0 +1,59 @@
+.hide {
+  display: none;
+}
+
+.fav-toggle {
+  position: absolute;
+  top: 2em;
+  right: 0;
+  background: #00000074;
+  padding: 1em 0.5em;
+  border: 0;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  margin-right: 1.5em;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 2em;
+  height: 3px;
+  background: #fff;
+
+  transition: transform 300ms ease-in-out, opacity 250ms linear;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  bottom: 6px;
+}
+
+.hamburger::after {
+  top: 6px;
+}
+
+.nav-open .fav-toggle {
+  transform: translateX(0);
+}
+
+.nav-open .hamburger {
+  transform: rotate(45deg);
+}
+
+.nav-open .hamburger::before {
+  opacity: 0;
+}
+
+.nav-open .hamburger::after {
+  transform: rotate(90deg) translate(-6px);
+}

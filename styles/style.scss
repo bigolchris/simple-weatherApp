@@ -1,0 +1,36 @@
+@import "./main-card";
+@import "./favorites-container";
+@import "./favorites-card";
+@import "./hamburger-btn";
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #222;
+  font-family: "Open Sans", sans-serif;
+  background-image: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1740&dpr=1");
+  font-size: 120%;
+}
+
+/* favorites tab styles */
+
+/* .favTitle {
+  text-transform: capitalize;
+} */
+
+/* hamburger */
+
+/* .fav-header {
+  color: #fff;
+  height: 10vh;
+  width: 10vw;
+} */
+
+/* .newTitle-styles {
+  width: 1em;
+  height: 1em;
+  color: white;
+} */
