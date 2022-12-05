@@ -143,6 +143,7 @@ const clearContainer = (container: HTMLElement) => {
   }
 };
 
+let noFavs = document.querySelector(".no-favorites") as HTMLDivElement;
 let mainCard = document.querySelector(".card") as HTMLDivElement;
 let favToggle = document.querySelector(".fav-toggle") as HTMLInputElement;
 let favContainer = document.querySelector(".fav-container") as HTMLDivElement;
@@ -216,7 +217,7 @@ favToggle.addEventListener("click", () => {
   console.log("fired");
   document.body.classList.toggle("nav-open");
 
-  if (favContainer.classList.contains("hide")) {
+  if (favContainer.classList.contains("hide") && savedWeathers.length >= 1) {
     favContainer.classList.add("show");
     favContainer.classList.remove("hide");
   } else {
@@ -229,7 +230,16 @@ favToggle.addEventListener("click", () => {
   } else {
     mainCard.classList.remove("showCard");
   }
+
+  if (noFavs.classList.contains("hide") && savedWeathers.length === 0) {
+    // noFavs.classList.add("show");
+    noFavs.classList.remove("hide");
+  } else {
+    // noFavs.classList.remove("show");
+    noFavs.classList.add("hide");
+  }
 });
+
 searchForm.addEventListener("submit", weatherSubmitHandler);
 
 // let weather = {
