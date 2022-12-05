@@ -22,7 +22,11 @@
   overflow-y: scroll;
   padding-inline: 0.7em;
   background-color: rgba(255, 255, 255, 0.071);
-  /* display: flex; */
+  padding-top: 1em;
+  border-radius: 1em;
+  flex-direction: column;
+
+  //   display: flex;
   /* border: 1px solid black; */
 }
 
@@ -37,4 +41,30 @@
 .fav-container::-webkit-scrollbar-thumb {
   background: rgba(15, 15, 15, 0.439);
   border-radius: 1em;
+}
+
+@media (max-width: 768px) {
+  .fav-container,
+  .show {
+    // position: fixed;
+    top: 3em;
+    right: 0;
+    // width: 80%;
+    height: 100vh;
+    padding: 2rem;
+  }
+
+  .new-fav-container {
+    background: #000000d0;
+    position: relative;
+    color: white;
+    border-radius: 1.5em;
+    width: 20rem;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    margin-bottom: 1em;
+  }
 }

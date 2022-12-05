@@ -143,6 +143,7 @@ const clearContainer = (container: HTMLElement) => {
   }
 };
 
+let mainCard = document.querySelector(".card") as HTMLDivElement;
 let favToggle = document.querySelector(".fav-toggle") as HTMLInputElement;
 let favContainer = document.querySelector(".fav-container") as HTMLDivElement;
 const renderFavoriteWeathers = () => {
@@ -221,6 +222,12 @@ favToggle.addEventListener("click", () => {
   } else {
     favContainer.classList.remove("show");
     favContainer.classList.add("hide");
+  }
+
+  if (document.body.classList.contains("nav-open")) {
+    mainCard.style.filter = "blur(7px)";
+  } else {
+    mainCard.style.filter = "blur(0)";
   }
 });
 searchForm.addEventListener("submit", weatherSubmitHandler);
