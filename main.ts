@@ -225,9 +225,9 @@ favToggle.addEventListener("click", () => {
   }
 
   if (document.body.classList.contains("nav-open")) {
-    mainCard.style.filter = "blur(7px)";
+    mainCard.classList.add("showCard");
   } else {
-    mainCard.style.filter = "blur(0)";
+    mainCard.classList.remove("showCard");
   }
 });
 searchForm.addEventListener("submit", weatherSubmitHandler);
