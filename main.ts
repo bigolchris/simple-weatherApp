@@ -103,6 +103,7 @@ const addNewWeatherToFavorites = () => {
 
 const renderNewWeather = (weather: Weather) => {
   clearContainer(weatherContainer);
+  let isHovered = false;
 
   let weatherTitle = document.createElement("h1");
   let weatherTemp = document.createElement("h2");
@@ -125,7 +126,7 @@ const renderNewWeather = (weather: Weather) => {
   weatherTemp.innerText = `${weather.temp} °F`;
   weatherIcon.src = `https://openweathermap.org/img/wn/${weather.icon}.png`;
   weatherDesc.innerText = weather.description;
-  weatherSpeed.innerText = `Wind Speed: ${weather.windSpeed}Mph`;
+  weatherSpeed.innerText = `Wind Speed: ${weather.windSpeed} Mph`;
   weatherHumidity.innerText = `Humidity: ${weather.humidity}%`;
   document.body.style.backgroundImage = `url(${weather.img})`;
 
@@ -153,7 +154,7 @@ const renderFavoriteWeathers = () => {
 
   // loop through saved weathers, parse data, and create elements
 
-  for (let i = 0; i < savedWeathers.length; i++) {}
+  // for (let i = 0; i < savedWeathers.length; i++) {}
 
   const favWeatherElements = savedWeathers.map((fav) => {
     let newWeatherContainer = document.createElement("div");

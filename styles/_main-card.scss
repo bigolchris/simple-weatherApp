@@ -56,13 +56,27 @@
   height: 2.8em;
   width: 2.8em;
   outline: none;
-  background: #7c7c7c2b;
+  background: #7c7c7c00;
   color: white;
 }
 
-.fav-btn:hover {
-  color: red;
-  background-color: #fffaf1;
+// .fav-btn:hover {
+//   color: red;
+//   background-color: #7c7c7c00;
+// }
+
+.fav-btn {
+  background-position: center;
+  transition: background 0.5s;
+  &:hover {
+    background: red radial-gradient(circle, transparent 1%, red 1%)
+      center/15000%;
+  }
+  &:active {
+    background-color: white;
+    background-size: 100%;
+    transition: background 0s;
+  }
 }
 
 .search-submit-button:hover {
